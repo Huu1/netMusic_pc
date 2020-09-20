@@ -1,0 +1,30 @@
+{
+  "id": "1669821",
+  "name": "music",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8550913",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "2237646",
+      "name": "音量关",
+      "font_class": "yinliangguan",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "2237647",
+      "name": "音量开",
+      "font_class": "yinliangkai",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    }
+  ]
+}

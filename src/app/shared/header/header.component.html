@@ -1,0 +1,44 @@
+<div class="header-contianer">
+  <div class="header">
+    <div class="logo-wrap">
+    <div class="logo">
+      <i class="iconfont ">&#xe606;</i>
+    </div>
+    <span>网抑云音乐</span>
+  </div>
+  <ul class="menu">
+    <li [ngClass]="{'menuActive': index==i}"
+        *ngFor="let menu of menuList;let i=index" 
+        (click)="menuChange(i,menu)"
+     >
+     {{menu.title}}
+    </li>
+  </ul>
+  <div class="search"></div>
+  <div class="creatorCenter">创作者中心</div>
+  <a *ngIf="isLogin; else other" class='noLogin' (click)="Login()">登录</a>
+  <ng-template #other>
+    <div class="avatar-wrap" >
+      <div class="avatar"></div>
+      <ul class="userMenu">
+        <li><i class="iconfont "> &#xe602;</i> <span>我的主页</span></li>
+        <li><i class="iconfont "> &#xe647;</i> <span>我的消息</span></li>
+        <li><i class="iconfont "> &#xe601;</i> <span>我的等级</span></li>
+        <li><i class="iconfont "> &#xe601;</i> <span>VIP会员</span></li>
+        <li><i class="iconfont "> &#xe600;</i> <span>个人设置</span></li>
+        <li><i class="iconfont "> &#xe658;</i> <span>我的主页</span></li>
+        <li><i class="iconfont "> &#xe617;</i> <span>退出</span></li>
+      </ul>
+    </div>
+  </ng-template>
+  </div>
+  <div class="submenu">
+    <ng-container *ngIf="index==0">
+      <ul>
+        <li *ngFor="let menu of subMenuList;let i =index" (click)="subMenuChange(i,menu)" [ngClass]="{'submenuActive': i==this.subIndex}" > 
+          <span>{{menu.title}}</span>
+        </li>
+      </ul>
+    </ng-container>
+  </div>
+</div>
