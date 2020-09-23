@@ -14,7 +14,7 @@
      {{menu.title}}
     </li>
   </ul>
-  <div class="search"></div>
+  <app-search></app-search>
   <div class="creatorCenter">创作者中心</div>
   <a *ngIf="isLogin; else other" class='noLogin' (click)="Login()">登录</a>
   <ng-template #other>

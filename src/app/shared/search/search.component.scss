@@ -1,0 +1,25 @@
+.search{
+    width: 158px;
+    height: 32px;
+    margin-left: 80px;
+    &:focus{
+        .suggestList{
+            display: block;
+        }
+    }
+    input{
+        width: 158px;
+        box-sizing: border-box;
+        padding: 8px 12px;
+        outline-style: none ;
+        border: 0px;
+        border-radius: 999px;
+        font-size: 11px;
+    }
+    .suggestList{
+        display: none;
+        width: 158px;
+        min-height: 500px;
+        background-color: honeydew;
+    }
+}

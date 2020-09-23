@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   constructor() { }
   @Output() urlChange = new EventEmitter()
 
-  isLogin:boolean=true
+  isLogin: boolean = true
 
   // 菜单
   index = 0
@@ -62,9 +62,7 @@ export class HeaderComponent implements OnInit {
     },
   ]
   ngOnInit() {
-    setTimeout(()=>{
-      this.isLogin=!this.isLogin
-    },3000)
+    
   }
   menuChange(i, menu) {
     this.index = i
@@ -77,7 +75,7 @@ export class HeaderComponent implements OnInit {
   emitClick(url: { title: string, url: string }) {
     this.urlChange.emit(url)
   }
-  Login(){
-    
+  Login() {
+
   }
 }

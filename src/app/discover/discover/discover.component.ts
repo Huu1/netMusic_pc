@@ -11,12 +11,12 @@ export class DiscoverComponent implements OnInit {
   constructor(private initService: DiscoverService) { }
 
   ngOnInit() {
-    this.initService.Login({
-      phone: 13221055266,
-      password: "hy960820"
-    }).subscribe(res => {
-      console.log(res);
-    })
+    // this.initService.Login({
+    //   phone: 13221055266,
+    //   password: "hy960820"
+    // }).subscribe(res => {
+    //   console.log(res);
+    // })
   }
 
 }

@@ -8,7 +8,7 @@ export class DiscoverService {
   constructor(private http: HttpClient) { }
 
   Login(paramObj): Observable<{}> {
-    let urlStr: string = 'http://localhost:3000/login/cellphone'
+    let urlStr: string = 'api/login/cellphone'
     return this.http.post(urlStr, paramObj)
   }
 

@@ -1,0 +1,5 @@
+<div class="search" tabindex="-1">
+  <input type="text" [(ngModel)]="keys"  placeholder="音乐/视频/电台/用户" #search />
+  <div class="suggestList" [style.display]='hasIuggest?"block":"none"' #suggestList></div>
+</div>
+
