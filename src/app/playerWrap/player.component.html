@@ -1,0 +1,18 @@
+<div class="player-Container" #player>
+    <div class="player-content">
+        <div class="left">
+            <i class="iconfont pre">&#xe604;</i>
+            <span (click)="pauseHandle()">
+                <i class="iconfont play icon-shipin"  *ngIf="!playService.Song.playing"></i>
+                <i class="iconfont play icon-bofang"  *ngIf="playService.Song.playing"></i>
+            </span>
+            <i class="iconfont next">&#xe618;</i>
+        </div>
+        <div class="center">
+        </div>
+        <div class="right"></div>
+        
+    </div>
+    <div class="locked" (click)="fixClick()"></div>
+    <audio [src]="playService.Song.url" #audio  autoplay></audio>
+</div>

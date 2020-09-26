@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { from, fromEvent, merge, Observable, of } from 'rxjs';
 import { concatAll, debounceTime, map, startWith, switchMap, withLatestFrom } from 'rxjs/operators'
 
@@ -14,11 +14,17 @@ export class SearchComponent implements OnInit {
     private http: HttpClient
   ) { }
 
+  @Output() selectItem = new EventEmitter()
   @ViewChild('search') search: ElementRef
   @ViewChild('suggestList') suggestList: ElementRef
 
   hasIuggest: boolean = false
   keys: string = ''
+  loading: boolean = false
+  list = [
+
+  ]
+
   ngOnInit() {
   }
 
@@ -27,17 +33,20 @@ export class SearchComponent implements OnInit {
     const getFocus = fromEvent(this.search.nativeElement, 'focus')
 
     //失焦
-    fromEvent(this.search.nativeElement, 'blur').subscribe(res => {
-      this.hasIuggest = false
-    })
+    fromEvent(this.search.nativeElement, 'blur')
+      .pipe(
+        debounceTime(300)
+      )
+      .subscribe(res => {
+        this.hasIuggest = false
+      })
 
     // key
     const keyWord = fromEvent(this.search.nativeElement, 'input')
 
     // 下拉框
-    const selectItem = fromEvent(this.suggestList.nativeElement, 'cllick')
-
-
+    const selectItem = fromEvent(this.suggestList.nativeElement, 'cllick').subscribe(res => console.log(res)
+    )
 
     getFocus.pipe(
       map((e) => {
@@ -48,8 +57,10 @@ export class SearchComponent implements OnInit {
       debounceTime(300),
       switchMap(
         (e: any): any => {
+          this.list = []
           if (e.target.value) {
             this.hasIuggest = true
+            this.loading = true
             return this.getSuggestList(e.target.value)
           } else {
             this.hasIuggest = false
@@ -58,10 +69,22 @@ export class SearchComponent implements OnInit {
         }
       )
     ).subscribe((res: any) => {
-      if (res.code !== 200) return
-      this.render(res.result)
+      const { code, result } = res
+      this.loading = false
+      if (code !== 200) return
+      result.order && result.order.forEach(o => {
+        let _obj = {
+          title: '',
+          value: []
+        }
+        _obj.title = o
+        _obj.value = result[o].map(item => {
+          return item
+        })
+        this.list.push(_obj)
+      });
     }, error => {
-      console.log(error);
+      console.warn(error);
     })
   }
   getSuggestList(keywords) {
@@ -73,8 +96,26 @@ export class SearchComponent implements OnInit {
     return this.http.post(urlStr, paramObj)
   }
 
-  render(res) {
-
+  format(str) {
+    let res
+    switch (str) {
+      case 'songs':
+        res = '歌曲'
+        break;
+      case 'playlists':
+        res = '歌单'
+        break;
+      case 'albums':
+        res = '专辑'
+        break;
+      default:
+        res = '歌手'
+        break;
+    }
+    return res
   }
 
+  onClick(i) {
+    this.selectItem.emit(i)
+  }
 }

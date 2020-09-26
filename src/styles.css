@@ -13,7 +13,13 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	vertical-align:baseline;
 	background:transparent;
 	*/
+	-moz-user-select: none; /*火狐*/
+	-webkit-user-select: none; /*webkit浏览器*/
+	-ms-user-select: none; /*IE10*/
+	-khtml-user-select: none; /*早期浏览器*/
+	user-select: none;
 }
+
 h1,h2,h3,h4,h5,h6,em,i {
 	font-weight:100;
 	font-style:normal;

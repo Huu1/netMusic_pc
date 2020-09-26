@@ -2,6 +2,7 @@
     width: 158px;
     height: 32px;
     margin-left: 80px;
+    outline: none;
     &:focus{
         .suggestList{
             display: block;
@@ -18,8 +19,61 @@
     }
     .suggestList{
         display: none;
-        width: 158px;
-        min-height: 500px;
-        background-color: honeydew;
+        width: 200px;
+        margin-top: 10px;
+        background-color: #ffffff;
+        border: 1px solid #bebebe;
+        border-radius: 4px;
+        box-shadow: 0 4px 7px #555;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+        .search-header{
+            width: 100%;
+            line-height: 1;
+            font-size: 11px;
+            text-align: left;
+            padding: 15px 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #cccccc;
+        }
+        .item{
+            width: 100%;
+            display: flex;
+            .left{
+                width: 60px;
+                padding: 10px;
+                box-sizing: border-box;
+                border-right: 1px solid #cccccc;
+            }
+            .right{
+                border-top: 1px solid #cccccc;
+                flex: 1;
+                overflow: hidden;
+                padding: 5px 0;
+                box-sizing: border-box;
+                .r-item{
+                    height: 24px;
+                    line-height: 24px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    span{
+                        margin-left: 5px;
+                    }
+                    &:hover{
+                        background-color: #cccccc;
+                    }
+                }
+            }
+        }
+        .item:nth-child(even){
+            .right{
+                background-color: #f9f8f8;
+            }
+        }
+        .item:first-child{
+            .right{
+                border-top: none;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { PlayerService } from 'src/app/playerWrap/player.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private playService: PlayerService) { }
   @Output() urlChange = new EventEmitter()
 
   isLogin: boolean = true
@@ -62,7 +63,7 @@ export class HeaderComponent implements OnInit {
     },
   ]
   ngOnInit() {
-    
+
   }
   menuChange(i, menu) {
     this.index = i
@@ -77,5 +78,8 @@ export class HeaderComponent implements OnInit {
   }
   Login() {
 
+  }
+  setSong(e) {
+    this.playService.setCurrentSong_Info(e)
   }
 }

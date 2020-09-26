@@ -1,5 +1,18 @@
 <div class="search" tabindex="-1">
   <input type="text" [(ngModel)]="keys"  placeholder="音乐/视频/电台/用户" #search />
-  <div class="suggestList" [style.display]='hasIuggest?"block":"none"' #suggestList></div>
+  <div class="suggestList" [style.display]='hasIuggest?"block":"none"' #suggestList>
+    <div class="search-header">
+      搜'{{keys}}'相关用户>
+    </div>
+    <div style="display: flex;justify-content: center;padding: 5px;" *ngIf="loading">
+      <mat-spinner strokeWidth=3  diameter=30 color='accent' ></mat-spinner>
+    </div>
+    <div class="item"  *ngFor="let item of list">
+      <div class="left">{{format(item.title)}}</div>
+      <ul class="right">
+        <li class="r-item" (click)="onClick(i)"  *ngFor="let i of item.value"> <span>{{i.name}}</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
