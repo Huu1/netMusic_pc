@@ -9,10 +9,15 @@
             <i class="iconfont next">&#xe618;</i>
         </div>
         <div class="center">
+            <!-- <mat-slider color='accent'></mat-slider> -->
+            <div class="bar-wrap" #barWrap >
+                <div class="bar" #bar></div>
+                <div class="cicile" #cicle></div>
+            </div>
         </div>
         <div class="right"></div>
         
     </div>
     <div class="locked" (click)="fixClick()"></div>
-    <audio [src]="playService.Song.url" #audio  autoplay></audio>
+    <audio [src]="playService.Song.url" #audio  ></audio>
 </div>

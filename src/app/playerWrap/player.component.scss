@@ -39,5 +39,30 @@
                 margin: 0 10px;
             }
         }
+        .center{
+            // mat-slider {
+            //     width: 300px;
+            //   }
+            .bar-wrap{
+                width: 200px;
+                height: 20px;
+                background-color: yellow;
+                position: relative;
+                .bar{
+                    width: 0;
+                    height: 20px;
+                    position: absolute;
+                    background-color: goldenrod;
+                }
+                .cicile{
+                    position: absolute;
+                    width: 20px;
+                    left: -10px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: seagreen;
+                }
+            }
+        }
     }
 }
