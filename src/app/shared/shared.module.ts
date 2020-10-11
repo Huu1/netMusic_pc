@@ -8,6 +8,8 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule } from "@angular/forms";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatSliderModule } from '@angular/material/slider'
+import { ScrollBarComponent } from './scrollBar/scrollBar.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,12 +23,14 @@ import { MatSliderModule } from '@angular/material/slider'
     HeaderComponent,
     NotFoundComponent,
     SearchComponent,
+    ScrollBarComponent
   ],
   exports: [
     HeaderComponent,
     NotFoundComponent,
     SearchComponent,
-    MatSliderModule
+    MatSliderModule,
+    ScrollBarComponent
   ]
 })
 export class SharedModule { }

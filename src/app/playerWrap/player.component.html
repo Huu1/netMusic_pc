@@ -9,10 +9,14 @@
             <i class="iconfont next">&#xe618;</i>
         </div>
         <div class="center">
-            <!-- <mat-slider color='accent'></mat-slider> -->
-            <div class="bar-wrap" #barWrap >
-                <div class="bar" #bar></div>
-                <div class="cicile" #cicle></div>
+            <div class="songImg"></div>
+            <div class="songInfo">
+                <div class="songTitle">
+                    <span class="songName">会不会(吉他版)</span> 
+                    <span class='singer'>刘大壮</span>
+                </div>
+                <app-scrollBar [setPresent]='_current_time' (present)='onHandle_SongOfRate($event)'></app-scrollBar>
+                {{current_time+'/'+ timeHandle(duration/1000)}}
             </div>
         </div>
         <div class="right"></div>

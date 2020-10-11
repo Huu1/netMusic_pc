@@ -1,0 +1,46 @@
+.bar-wrap{
+    width: 440px;
+    height: 10px;
+    background-color:  #191919;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 999px;
+    .bar{
+        width: 0;
+        height: 10px;
+        position: absolute;
+        background-color:  #E60026;
+        border-radius: 999px;
+    }
+    .cicile{
+        position: absolute;
+        width: 18px;
+        left: -10px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+        &:hover{
+            box-shadow: white 0px 0px 3px;
+        }
+        .innerCicle{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            
+            &:before{
+                position: absolute;
+                height: 8px;
+                content: '';
+                width: 8px;
+                background-color: #E60026;
+                border-radius: 50%;
+                left: 50%;
+                top:50%;
+                margin-left: -4px;
+                margin-top: -4px;
+            }
+        }
+    }
+}

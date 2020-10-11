@@ -4,17 +4,17 @@
     left: 0;
     right: 0;
     height: 50px;
-    background-color: skyblue;
+    background-color: #2D2D2D;
     z-index: 99;
     transition: all .3s ease-out;
-    padding: 5px 0;
-    box-sizing: border-box;
+    // padding: 5px 0;
+    // box-sizing: border-box;
     .locked{
         position: absolute;
         top:-20px;
         right: 40px;
         z-index: 99;
-        background-color: sandybrown;
+        background-color: #2C2B2B;
         width: 20px;
         height: 20px;
     }
@@ -22,14 +22,13 @@
         width: 980px;
         height: 100%;
         margin: 0 auto;
-        background-color: gray;
         display: flex;
-        justify-content: space-between;
         .left{
             display: flex;
             align-items: center;
             width: 137px;
             height: 100%;
+            color: #BFBFC0;
             i{
                 font-size: 22px;
                 cursor: pointer;
@@ -40,29 +39,22 @@
             }
         }
         .center{
-            // mat-slider {
-            //     width: 300px;
-            //   }
-            .bar-wrap{
-                width: 200px;
-                height: 20px;
-                background-color: yellow;
-                position: relative;
-                .bar{
-                    width: 0;
-                    height: 20px;
-                    position: absolute;
-                    background-color: goldenrod;
-                }
-                .cicile{
-                    position: absolute;
-                    width: 20px;
-                    left: -10px;
-                    height: 20px;
-                    border-radius: 50%;
-                    background-color: seagreen;
+            display: flex;
+            align-items: center;
+            .songImg{
+                width: 35px;
+                height: 35px;
+                border-radius: 5px;
+                background-color: aliceblue;
+            }
+            .songInfo{
+                margin:  0 0 0 20px;
+                .songtitle{
+                    height: 28px;
+                    background-color: aquamarine;
                 }
             }
+           
         }
     }
 }
