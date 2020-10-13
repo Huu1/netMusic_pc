@@ -10,7 +10,7 @@
     <div class="item"  *ngFor="let item of list">
       <div class="left">{{format(item.title)}}</div>
       <ul class="right">
-        <li class="r-item" (click)="onClick(i)"  *ngFor="let i of item.value"> <span>{{i.name}}</span></li>
+        <li class="r-item" (click)="onClick(i,item.title)"  *ngFor="let i of item.value"> <span>{{i.name}}</span></li>
       </ul>
     </div>
   </div>

@@ -14,9 +14,9 @@ export class SearchComponent implements OnInit {
     private http: HttpClient
   ) { }
 
-  @Output() selectItem = new EventEmitter()
-  @ViewChild('search') search: ElementRef
-  @ViewChild('suggestList') suggestList: ElementRef
+  @Output() selectItem = new EventEmitter();
+  @ViewChild('search') search: ElementRef;
+  @ViewChild('suggestList') suggestList: ElementRef;
 
   hasIuggest: boolean = false
   keys: string = ''
@@ -115,7 +115,10 @@ export class SearchComponent implements OnInit {
     return res
   }
 
-  onClick(i) {
-    this.selectItem.emit(i)
+  onClick(i, title) {
+    this.selectItem.emit({
+      type: title,
+      data: i
+    })
   }
 }

@@ -64,6 +64,8 @@ export class PlayerComponent implements OnInit {
       })
   }
   songInit(val, firstFlag = false) {
+    console.log(val);
+    
     this.playService.setSongUrl(val.id)
     this.duration = val.duration;
     this.audio.nativeElement.src = this.playService.Song.url;

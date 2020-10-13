@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { PlayerService } from 'src/app/playerWrap/player.service';
 
 @Component({
@@ -8,7 +9,10 @@ import { PlayerService } from 'src/app/playerWrap/player.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private playService: PlayerService) { }
+  constructor(
+    private playService: PlayerService,
+    private router: Router
+  ) { }
   @Output() urlChange = new EventEmitter()
 
   isLogin: boolean = true
@@ -80,6 +84,23 @@ export class HeaderComponent implements OnInit {
 
   }
   setSong(e) {
-    this.playService.setCurrentSong_Info(e)
+    // this.playService.setCurrentSong_Info(e)
+    switch (e.type) {
+      case 'artists':
+        this.router.navigate(['artist'], { queryParams: { id: e.data.id } })
+        break;
+      case 'songs':
+        this.router.navigate(['song'], { queryParams: { id: e.data.id } })
+        break;
+      case 'playlists':
+        this.router.navigate(['playlist'], { queryParams: { id: e.data.id } })
+        break;
+      case 'albums':
+        this.router.navigate(['album'], { queryParams: { id: e.data.id } })
+        break;
+
+      default:
+        break;
+    }
   }
 }
