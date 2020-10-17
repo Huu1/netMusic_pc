@@ -1,3 +1,61 @@
-<p>
-  song works!
-</p>
+<div class="songContainer">
+    <div class="leftWrap">
+        <div class="top">
+            <div class="songImg">
+                <div class="imgWrap">
+                    <!-- <img src="" alt=""> -->
+                </div>
+                <span class="imgTitle">生成外链播放器</span>
+            </div>
+            <div class="songInfo">
+                <div class="line1">
+                    <span class="tag">
+                    <i class="iconfont">&#xe628;</i>
+                  </span>
+                    <span class="songName">歌曲名</span>
+                </div>
+                <div class="line">
+                    <span>歌手：</span>
+                    <span>周杰伦 / 李玟</span>
+                </div>
+                <div class="line">
+                    <span>所属专辑：</span>
+                    <span>Partners 拍档</span>
+                </div>
+                <div class="buttonLine">
+                    <div class="btn1">
+                        <div (click)="play()" class="btnBlue-left btnBlue play flex-center">
+                            <i class="iconfont">&#xe62e;</i>
+                            <span>播放</span>
+                        </div>
+                        <div class="btnBlue-right btnBlue add flex-center">
+                            <i class="iconfont">&#xe624;</i>
+                        </div>
+                    </div>
+                    <div class="btnBorder flex-center">
+                        <i class="iconfont">&#xe66f;</i>
+                        <span>收藏</span>
+                    </div>
+                    <div class="btnBorder flex-center">
+                        <i class="iconfont">&#xe62a;</i>
+                        <span>分享</span>
+                    </div>
+                    <div class="btnBorder flex-center">
+                        <i class="iconfont">&#xe697;</i>
+                        <span>下载</span>
+                    </div>
+                    <div class="btnBorder flex-center">
+                        <i class="iconfont">&#xe63d;</i>
+                        <span>(50212222)</span>
+                    </div>
+                </div>
+                <div class="iyric" [ngClass]="{'open': isOpen}">
+                    <li *ngFor="let item of lrcHandel()" [ngClass]="{'otherLine': item===0}">{{item}}</li>
+                </div>
+                <span class="openClick" (click)="Open()">{{isOpen?'收起':'展开'}}</span>
+            </div>
+        </div>
+        <div class="bottom"></div>
+    </div>
+    <div class="right"></div>
+</div>

@@ -1,23 +1,23 @@
-.search{
+.search {
     width: 158px;
     height: 32px;
     margin-left: 80px;
     outline: none;
-    &:focus{
-        .suggestList{
+    &:focus {
+        .suggestList {
             display: block;
         }
     }
-    input{
+    input {
         width: 158px;
         box-sizing: border-box;
         padding: 8px 12px;
-        outline-style: none ;
+        outline-style: none;
         border: 0px;
         border-radius: 999px;
         font-size: 11px;
     }
-    .suggestList{
+    .suggestList {
         display: none;
         width: 200px;
         margin-top: 10px;
@@ -26,7 +26,7 @@
         border-radius: 4px;
         box-shadow: 0 4px 7px #555;
         text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
-        .search-header{
+        .search-header {
             width: 100%;
             line-height: 1;
             font-size: 11px;
@@ -35,43 +35,43 @@
             box-sizing: border-box;
             border-bottom: 1px solid #cccccc;
         }
-        .item{
+        .item {
             width: 100%;
             display: flex;
-            .left{
+            .left {
                 width: 60px;
                 padding: 10px;
                 box-sizing: border-box;
                 border-right: 1px solid #cccccc;
             }
-            .right{
+            .right {
                 border-top: 1px solid #cccccc;
                 flex: 1;
                 overflow: hidden;
                 padding: 5px 0;
                 box-sizing: border-box;
-                .r-item{
+                .r-item {
                     height: 24px;
                     line-height: 24px;
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
-                    span{
+                    span {
                         margin-left: 5px;
                     }
-                    &:hover{
+                    &:hover {
                         background-color: #cccccc;
                     }
                 }
             }
         }
-        .item:nth-child(even){
-            .right{
+        .item:nth-child(even) {
+            .right {
                 background-color: #f9f8f8;
             }
         }
-        .item:first-child{
-            .right{
+        .item:first-child {
+            .right {
                 border-top: none;
             }
         }

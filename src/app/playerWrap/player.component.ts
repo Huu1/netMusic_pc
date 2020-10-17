@@ -79,14 +79,16 @@ export class PlayerComponent implements OnInit {
       })
   }
   songInit(val, firstFlag = false) {
-    this.playService.getLyric(val.id).subscribe(res => {
-      console.log(res);
-    })
+    this.playService.setSongUrl(val[0].id)
+    this.duration = val[0].dt;
+    this.playService.Song.singer = val[0].name;
+    this.playService.Song.singerAvatar = val[0].name;
+    this.playService.Song.songName = val[0].ar.map(item => {
+      return item.name
+    }).join('/')
+    this.playService.Song.singerAvatar=val[0].al.picUrl+'?param=34y34'
 
-    this.playService.setSongUrl(val.id)
-    this.duration = val.duration;
     this.audio.nativeElement.src = this.playService.Song.url;
-
 
     if (!firstFlag) {
       setTimeout(() => {
@@ -138,6 +140,10 @@ export class PlayerComponent implements OnInit {
 
   onTimeHandel(e) {
     this.timeFlag = e.flag;
+    if (this.audio.nativeElement.readyState !== 0 && !this.playService.Song.playing && !this.timeFlag) {
+      this.audio.nativeElement.play()
+      this.playService.setSongSate(true)
+    }
     this.current_time = this.timeHandle(e.precent * this.duration / 1000)
   }
 

@@ -1,0 +1,186 @@
+.songContainer {
+    width: 980px;
+    background-color: #ffffff;
+    border: 1px solid #d3d3d3;
+    margin: 0 auto;
+    display: flex;
+    button {
+        display: absolute;
+    }
+    .leftWrap {
+        width: 710px;
+        height: 1500px;
+        padding: 40px 30px;
+        box-sizing: border-box;
+        .top {
+            display: flex;
+            justify-content: space-between;
+            .songImg {
+                width: 206px;
+                height: 260px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .imgWrap {
+                    width: 130px;
+                    height: 130px;
+                    background-color: silver;
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .imgTitle {
+                    margin-top: 45px;
+                }
+            }
+            .songInfo {
+                width: 414px;
+                // background-color: silver;
+                .line1 {
+                    display: flex;
+                    .tag {
+                        display: inline-block;
+                        position: relative;
+                        i {
+                            font-size: 26px;
+                            color: #DB1F1F;
+                        }
+                        &:before {
+                            content: '单曲';
+                            position: absolute;
+                            font-size: 14px;
+                            color: white;
+                            top: 10%;
+                            left: 18%;
+                        }
+                    }
+                    .songName {
+                        line-height: 26px;
+                        font-size: 26px;
+                        margin-left: 13px;
+                    }
+                }
+                .line {
+                    margin: 10px 0;
+                    span:first-child {
+                        color: #999;
+                        font-size: 12px;
+                    }
+                    span:last-child {
+                        color: #0c73c2;
+                        font-size: 13px;
+                        cursor: pointer;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .buttonLine {
+                    display: flex;
+                    .btn1 {
+                        display: flex;
+                        .play {
+                            width: 66px;
+                            color: floralwhite;
+                            i {
+                                font-size: 15px;
+                            }
+                            span {
+                                margin-left: 5px;
+                                font-size: 13px;
+                                margin-bottom: 3px;
+                            }
+                        }
+                        .add {
+                            width: 31px;
+                            color: floralwhite;
+                            font-size: 15px;
+                            margin-right: 3px;
+                        }
+                    }
+                }
+                .iyric {
+                    margin-top: 25px;
+                    width: 168px;
+                    height: 322px;
+                    overflow: hidden;
+                    font-size: 12px;
+                    li {
+                        margin: 3px 0;
+                    }
+                    .otherLine {
+                        margin-top: 3px!important;
+                        background-color: saddlebrown;
+                        visibility: hidden;
+                    }
+                }
+                .openClick {
+                    font-size: 13px;
+                    color: #0c73c2;
+                    cursor: pointer;
+                }
+                .open {
+                    height: auto;
+                    overflow: auto;
+                }
+            }
+        }
+    }
+    .right {
+        width: 270px;
+        height: 800px;
+        border-left: 1px solid #d3d3d3;
+    }
+}
+
+.btnBlue {
+    background-color: #2172C1;
+    height: 31px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(100, 169, 229);
+    }
+}
+
+.btnBlue-left {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: 1px solid #999;
+}
+
+.btnBlue-right {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.btnBorder {
+    min-width: 54px;
+    height: 31px;
+    border: 1px solid #C4C4C4;
+    background-color: rgb(242, 242, 242);
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 3px;
+    &:hover {
+        background-color: #ffffff;
+    }
+    i {
+        font-size: 16px;
+        margin-left: 5px;
+        font-weight: 500;
+    }
+    span {
+        font-size: 13px;
+        margin-right: 5px;
+        margin-bottom: 3px;
+        margin: 0 5px 3px 3px;
+    }
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

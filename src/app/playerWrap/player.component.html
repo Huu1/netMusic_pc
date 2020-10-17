@@ -9,21 +9,46 @@
             <i class="iconfont next">&#xe618;</i>
         </div>
         <div class="center">
-            <div class="songImg"></div>
+            <div class="songImg">
+                <img [src]="playService.Song.singerAvatar" alt="" />
+            </div>
             <div class="songInfo">
                 <div class="songTitle">
-                    <span class="songName">会不会(吉他版)</span> 
-                    <span class='singer'>刘大壮</span>
+                    <a class="songName">{{playService.Song.songName}}</a>
+                    <a class='singer'>{{playService.Song.singer}}</a>
                 </div>
                 <div class="scrollBar">
                     <app-scrollBar [setPresent]='_current_time' (barProgress)='onTimeHandel($event)' (present)='onHandle_SongOfRate($event)'></app-scrollBar>
-                    <span>{{current_time+'/'+ timeHandle(duration/1000)}}</span>
+                    <span class="current_time">{{current_time}}</span>
+                    <span class="splitLine">/</span>
+                    <span>{{timeHandle(duration/1000)}}</span>
                 </div>
             </div>
         </div>
-        <div class="right"></div>
-        
+        <div class="right">
+            <span><i class="iconfont ">&#xe66f;</i></span>
+            <span><i class="iconfont ">&#xe651;</i></span>
+            <div class="splitLine">|</div>
+            <ng-container>
+                <span><i class="iconfont ">&#xe607;</i></span>
+            </ng-container>
+            <span><i class="iconfont ">&#xe6cd;</i></span>
+            <span><i class="iconfont ">&#xe616;</i></span>
+
+        </div>
+
     </div>
-    <div class="locked" (click)="fixClick()"></div>
-    <audio [src]="playService.Song.url" #audio  ></audio>
+    <div class="locked" (click)="fixClick()">
+        <div class="lock">
+            <span>
+                <i class="iconfont" *ngIf="fixed;else lock">&#xe605;</i>
+                <ng-template #lock>
+                    <i class="iconfont" >&#xe603;</i>
+                </ng-template>
+            </span>
+        </div>
+
+
+    </div>
+    <audio [src]="playService.Song.url" #audio></audio>
 </div>

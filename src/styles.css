@@ -19,6 +19,9 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	-khtml-user-select: none; /*早期浏览器*/
 	user-select: none;
 }
+::-webkit-scrollbar {
+	display: none; /* Chrome Safari */
+  }
 
 h1,h2,h3,h4,h5,h6,em,i {
 	font-weight:100;
@@ -35,3 +38,4 @@ a {
 a:hover {
 	text-decoration:none;
 }
+

@@ -84,23 +84,23 @@ export class HeaderComponent implements OnInit {
 
   }
   setSong(e) {
-    this.playService.setCurrentSong_Info(e.data)
-    // switch (e.type) {
-    //   case 'artists':
-    //     this.router.navigate(['artist'], { queryParams: { id: e.data.id } })
-    //     break;
-    //   case 'songs':
-    //     this.router.navigate(['song'], { queryParams: { id: e.data.id } })
-    //     break;
-    //   case 'playlists':
-    //     this.router.navigate(['playlist'], { queryParams: { id: e.data.id } })
-    //     break;
-    //   case 'albums':
-    //     this.router.navigate(['album'], { queryParams: { id: e.data.id } })
-    //     break;
+    // this.playService.setCurrentSong_Info(e.data)
+    switch (e.type) {
+      case 'artists':
+        this.router.navigate(['artist'], { queryParams: { id: e.data.id } })
+        break;
+      case 'songs':
+        this.router.navigate(['song'], { queryParams: { id: e.data.id } })
+        break;
+      case 'playlists':
+        this.router.navigate(['playlist'], { queryParams: { id: e.data.id } })
+        break;
+      case 'albums':
+        this.router.navigate(['album'], { queryParams: { id: e.data.id } })
+        break;
 
-    //   default:
-    //     break;
-    // }
+      default:
+        break;
+    }
   }
 }

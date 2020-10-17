@@ -1,7 +1,8 @@
 .app-Wrap{
     width: 100%;
+    overflow: auto;
 }
 main{
     width: 100%;
-    margin-top: 75px;
+    background-color: #F5F5F5;
 }

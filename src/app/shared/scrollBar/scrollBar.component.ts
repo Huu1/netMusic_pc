@@ -9,17 +9,25 @@ import { concatAll, debounceTime, map, startWith, take, takeUntil, throttle, thr
 })
 export class ScrollBarComponent implements OnInit {
 
-  constructor(private rd2: Renderer2,) { }
+  constructor(private rd2: Renderer2) { }
 
+  // 滚动条
   @ViewChild('barWrap') barWrap: ElementRef
+
+  // 已播放部分
   @ViewChild('bar', { static: true }) bar: ElementRef
+
+  // 拖动按钮
   @ViewChild('cicle', { static: true }) cicle: ElementRef
 
+
+  // 滚动条进度
   @Output() present = new EventEmitter
 
   // 滑动时(改变时间)
   @Output() barProgress = new EventEmitter
 
+  // 接收进度
   @Input() setPresent: number = 0
 
   circleLeft;
