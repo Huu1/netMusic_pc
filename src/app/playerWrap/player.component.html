@@ -15,8 +15,10 @@
                     <span class="songName">会不会(吉他版)</span> 
                     <span class='singer'>刘大壮</span>
                 </div>
-                <app-scrollBar [setPresent]='_current_time' (present)='onHandle_SongOfRate($event)'></app-scrollBar>
-                {{current_time+'/'+ timeHandle(duration/1000)}}
+                <div class="scrollBar">
+                    <app-scrollBar [setPresent]='_current_time' (barProgress)='onTimeHandel($event)' (present)='onHandle_SongOfRate($event)'></app-scrollBar>
+                    <span>{{current_time+'/'+ timeHandle(duration/1000)}}</span>
+                </div>
             </div>
         </div>
         <div class="right"></div>

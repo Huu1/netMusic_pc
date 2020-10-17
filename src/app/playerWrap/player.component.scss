@@ -53,6 +53,15 @@
                     height: 28px;
                     background-color: aquamarine;
                 }
+                .scrollBar{
+                    display: flex;
+                    align-items: center;
+                    span{
+                        color: #cccccc;
+                        margin-left: 5px;
+                        font-size: 12px;
+                    }
+                }
             }
            
         }

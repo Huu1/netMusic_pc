@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { from, fromEvent, merge, Observable, of } from 'rxjs';
 import { concatAll, debounceTime, map, startWith, switchMap, withLatestFrom } from 'rxjs/operators'
+import { PlayerService } from 'src/app/playerWrap/player.service';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,7 @@ import { concatAll, debounceTime, map, startWith, switchMap, withLatestFrom } fr
 export class SearchComponent implements OnInit {
 
   constructor(
-    private http: HttpClient
+    private playService: PlayerService
   ) { }
 
   @Output() selectItem = new EventEmitter();
@@ -88,13 +89,10 @@ export class SearchComponent implements OnInit {
     })
   }
   getSuggestList(keywords) {
-    return this.getSearch({ keywords })
+    return this.playService.getSearch({ keywords })
   }
 
-  getSearch(paramObj): Observable<{}> {
-    let urlStr: string = `api/search/suggest?timestamp=${Date.now()}`
-    return this.http.post(urlStr, paramObj)
-  }
+
 
   format(str) {
     let res

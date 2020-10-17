@@ -28,6 +28,8 @@ export class PlayerComponent implements OnInit {
 
   _current_time
 
+  timeFlag = false;
+
   @ViewChild('player', { static: true }) player: ElementRef
   @ViewChild('audio', { static: true }) audio: ElementRef
 
@@ -37,11 +39,24 @@ export class PlayerComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
+    // 底部播放器固定
     this.playerWrapInit()
+
+    // this.audio.nativeElement.addEventListener("progress", (e) => {
+    //   // 缓冲下载中
+    //   if (this.audio.nativeElement.buffered.length != 0) {
+    //     Array.from(this.audio.nativeElement.buffered).forEach((item, i) => {
+    //       console.log('start', this.audio.nativeElement.buffered.start(i));
+    //       console.log('end', this.audio.nativeElement.buffered.end(i));
+    //     });
+    //   }
+    // });
 
     this.audio.nativeElement.addEventListener('timeupdate', (res) => {
       this._current_time = (this.audio.nativeElement.currentTime / (this.duration / 1000))
-      this.current_time = this.timeHandle(this.audio.nativeElement.currentTime)
+      if (!this.timeFlag) {
+        this.current_time = this.timeHandle(this.audio.nativeElement.currentTime)
+      }
     })
   }
 
@@ -64,11 +79,14 @@ export class PlayerComponent implements OnInit {
       })
   }
   songInit(val, firstFlag = false) {
-    console.log(val);
-    
+    this.playService.getLyric(val.id).subscribe(res => {
+      console.log(res);
+    })
+
     this.playService.setSongUrl(val.id)
     this.duration = val.duration;
     this.audio.nativeElement.src = this.playService.Song.url;
+
 
     if (!firstFlag) {
       setTimeout(() => {
@@ -118,6 +136,11 @@ export class PlayerComponent implements OnInit {
       })
   }
 
+  onTimeHandel(e) {
+    this.timeFlag = e.flag;
+    this.current_time = this.timeHandle(e.precent * this.duration / 1000)
+  }
+
   pauseHandle() {
     if (this.audio.nativeElement.readyState === 0) return
     if (this.playService.Song.playing) {
@@ -130,7 +153,6 @@ export class PlayerComponent implements OnInit {
   }
 
   onHandle_SongOfRate(e) {
-
     this.audio.nativeElement.currentTime = this.duration / 1000 * e
   }
 
